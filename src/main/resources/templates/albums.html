@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Albums</title>
+    <link rel="stylesheet" href="albums.css" />
+</head>
+
+<body>
+    <h1 class="mainTitle">Your Favorites Albums</h1>
+    <main>
+        <div th:each="album : ${Albums}" class="albumDiv">
+            <p>Album title :<span th:text="${album.title}"></span></p>
+            <p>Artist Name :<span th:text="${album.artist}"></span></p>
+            <p>Number of songs :<span th:text="${album.songCount}"></span></p>
+            <p>Total length :<span th:text="${album.length}"></span></p>
+            <img th:src="${album.imageUrl}" />
+        </div>
+    </main>
+</body>
+
+</html>

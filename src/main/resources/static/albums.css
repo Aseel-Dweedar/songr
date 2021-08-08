@@ -1,0 +1,41 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: #f0d9e7;
+    height: 100vh;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(3, 3fr);
+    gap: 15px;
+}
+
+.mainTitle {
+    text-align: center;
+    background-color: #6f4c5b;
+    height: 60px;
+    padding-top: 20px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.albumDiv {
+    width: 90%;
+    margin: auto;
+    text-align: center;
+    border: 1px solid gray;
+    padding: 5px;
+    background-color: white;
+}
+
+.albumDiv p {
+    line-height: 25px;
+}
+
+.albumDiv img {
+    width: 100%;
+}
