@@ -13,6 +13,10 @@
 
 - Create a route at /albums that shows three album instances.
 
+- A user should be able to add albums to the site.
+
+- Album model can be saved in a database.
+
 **Run the app** :
 
 Chose run and the app should run the port 8080 and you can see rendered content according to end point.
