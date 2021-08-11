@@ -17,6 +17,14 @@
 
 - Album model can be saved in a database.
 
+- Create a Song model. A Song has a title, a length (in seconds), a trackNumber, and the album on which that song appears.
+
+- A user should be able to see information about all the songs on the site.
+
+- A user should be able to view a page with data about one particular album.
+
+- A user should be able to add songs to an album.
+
 **Run the app** :
 
 Chose run and the app should run the port 8080 and you can see rendered content according to end point.
