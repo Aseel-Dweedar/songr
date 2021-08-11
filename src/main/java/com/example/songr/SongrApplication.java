@@ -9,8 +9,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableJpaRepositories("repository")
 @ComponentScan( basePackages = { "controllers"} )
 
-
-
 public class SongrApplication {
 
 	public static void main(String[] args) {

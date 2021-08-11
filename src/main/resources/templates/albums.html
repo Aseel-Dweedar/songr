@@ -8,14 +8,36 @@
 </head>
 
 <body>
+    <a href="http://localhost:8080">Home</a>
     <h1 class="mainTitle">Your Favorites Albums</h1>
     <main>
-        <div th:each="album : ${Albums}" class="albumDiv">
-            <p>Album title :<span th:text="${album.title}"></span></p>
-            <p>Artist Name :<span th:text="${album.artist}"></span></p>
-            <p>Number of songs :<span th:text="${album.songCount}"></span></p>
-            <p>Total length :<span th:text="${album.length}"></span></p>
-            <img th:src="${album.imageUrl}" />
+        <div class="form">
+            <h1>Add New Album</h1>
+            <br />
+            <form action="#" th:action="@{/postaddalbum}" th:object="${postaddalbum}" method="post">
+                <br />
+                <p>title: <input type="text" field="*{title}" name="title" /></p>
+                <br />
+                <p>artist: <input type="text" field="*{artist}" name="artist" /></p>
+                <br />
+                <p>songCount: <input type="number" min="1" field="*{songCount}" name="songCount" /></p>
+                <br />
+                <p>length: <input type="number" field="*{length}" name="length" /></p>
+                <br />
+                <p>imageUrl: <input type="text" field="*{imageUrl}" name="imageUrl" /></p>
+                <br />
+                <p>Submit <input type="submit" value="Submit" /></p>
+                <br />
+            </form>
+        </div>
+        <div class="albumsHolder">
+            <div th:each="album : ${Albums}" class="albumDiv">
+                <p>Album title :<span th:text="${album.title}"></span></p>
+                <p>Artist Name :<span th:text="${album.artist}"></span></p>
+                <p>Number of songs :<span th:text="${album.songCount}"></span></p>
+                <p>Total length :<span th:text="${album.length}"></span></p>
+                <img th:src="${album.imageUrl}" />
+            </div>
         </div>
     </main>
 </body>
