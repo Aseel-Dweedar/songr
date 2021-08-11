@@ -8,7 +8,19 @@ body {
     height: 100vh;
 }
 
-main {
+a {
+    float: left;
+    font-size: 20px;
+    padding: 15px;
+    text-decoration: none;
+    color: greenyellow;
+}
+
+.form {
+    margin-left: 20px;
+}
+
+.albumsHolder {
     display: grid;
     grid-template-columns: repeat(3, 3fr);
     gap: 15px;
