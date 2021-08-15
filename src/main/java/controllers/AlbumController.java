@@ -27,11 +27,21 @@ public class AlbumController {
         return "albums.html";
     }
 
+    @GetMapping("/error")
+    public String getError(){
+        return "error.html";
+    }
+
     @PostMapping("/postaddalbum")
     public RedirectView  addِUserData(@ModelAttribute Album album , Model model){
-        model.addAttribute("album" , album);
-        albumsRepository.save(album);
-        return new RedirectView("/albums");
+        try {
+            model.addAttribute("album" , album);
+            albumsRepository.save(album);
+            return new RedirectView("/albums");
+        } catch (Exception exception){
+            System.out.println(exception);
+            return new RedirectView("/error");
+        }
     }
 
     @GetMapping("/oneAlbum")

@@ -10,6 +10,8 @@ import org.springframework.web.servlet.view.RedirectView;
 import repository.AlbumsRepository;
 import repository.SongRepository;
 
+import java.util.List;
+
 @Controller
 public class SongController {
 
@@ -26,11 +28,21 @@ public class SongController {
         return "song.html";
     }
 
+    @GetMapping("/nosong")
+    public String getNoSong(){
+        return "noSongs.html";
+    }
+
     @PostMapping("/addsong")
     public RedirectView addSong(@RequestParam String title, Integer length , Integer  trackNumber , Integer id , Model model){
         Album songAlbum = albumsRepository.findById(id).get();
-        Song addNewSong = new Song(title , length , trackNumber , songAlbum);
-        songRepository.save(addNewSong);
-        return new RedirectView("/oneAlbum?id="+id) ;
+        List<Song> albumSongs = songRepository.findAllByAlbum(songAlbum);
+        if (songAlbum.getSongCount() > albumSongs.size()){
+            Song addNewSong = new Song(title , length , trackNumber , songAlbum);
+            songRepository.save(addNewSong);
+            return new RedirectView("/oneAlbum?id="+id) ;
+        }else {
+         return new RedirectView("/nosong");
+        }
     }
 }
